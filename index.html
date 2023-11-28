@@ -1,0 +1,129 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your GitHub Portfolio</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh; /* Make sure the body takes up the full viewport height */
+        }
+
+            canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+
+        header {
+            text-align: center;
+            margin: 50px 0;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="stars"></canvas>
+
+    <header>
+        <h1>Alex Baker</h1>
+        <p>Web Developer | GitHub Enthusiast | Space Enthusiast</p>
+    </header>
+
+    <!-- Add your portfolio content here -->
+    <section>
+        <h2>Projects</h2>
+        <!-- Add project details, links, and descriptions -->
+    </section>
+
+    <section>
+        <h2>About Me</h2>
+        <p>
+            - 👋 Hi, I’m @alexbaker96
+            <br>
+            <br>
+            - 👀 about me: i am 27 years old, i am a very outgoing and hardworking person. i have a keen interest in computer sciences mostly aimed towards artificial intelligence and cyber security.
+            <br>
+            <br>
+            - 🌱 I’m currently studying at the University of South Wales on the computer science course.
+            <br>
+            <br>
+            - 🌱 my hobbies include playing football for my local team, going to the gym and watching anime. i also like to spend my spare time going on walks exploring new places and experiecning new things. along with these physical activities i also have an interest in space amd the many wonders that the universe holds.
+            <br>
+            <br>
+            - 💞️ Sillset:
+            <br>
+            <br>
+            - 📫 How to reach me ...
+            <br>
+            <br>
+            - 📫 Recent projects completed
+        </p>
+    </section>
+
+    <!-- Add more sections as needed -->
+
+    <footer>
+        <p>Contact: alex.i.baker11@hotmail.com</p>
+        <!-- Add your social media links, GitHub profile link, etc. -->
+    </footer>
+
+    <script>
+        const canvas = document.getElementById('stars');
+        const ctx = canvas.getContext('2d');
+        canvas.width = 1920;
+        canvas.height = 1080;
+
+        const stars = [];
+
+        for (let i = 0; i < 100; i++) {
+            stars.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                radius: Math.random() * 2,
+                color: 'white',
+                speed: Math.random() * 0.5
+            });
+        }
+
+        function drawStars() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            for (const star of stars) {
+                ctx.beginPath();
+                ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+                ctx.fillStyle = star.color;
+                ctx.fill();
+
+                star.x -= star.speed;
+
+                if (star.x < 0) {
+                    star.x = canvas.width;
+                }
+            }
+
+            requestAnimationFrame(drawStars);
+        }
+
+        drawStars();
+    </script>
+</body>
+</html>
