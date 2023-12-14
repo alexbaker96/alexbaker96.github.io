@@ -41,13 +41,7 @@
             margin-left: 100px;
             margin-right: 100px;
         }
-        section {
-            overflow-y: scroll;
-            max-height: 70vh; /* Adjust the max-height as needed */
-            margin: 20px;
-            padding: 20px;
-            border: 1px solid #fff;
-        }
+       
     </style>
 </head>
 <body>
@@ -57,7 +51,7 @@
         <h1>Alex Baker</h1>
         <p>Web Developer | GitHub Enthusiast | Space Enthusiast</p>
     </header>
-    <input type="range" orient="vertical" id="scrollRange" />
+   
     <!-- Add your portfolio content here -->
     <section>
         <h2>Projects</h2>
@@ -132,13 +126,6 @@
         }
 
         drawStars();
-        const scrollRange = document.getElementById('scrollRange');
-        const scrollSection = document.querySelector('section');
-
-        scrollRange.addEventListener('input', () => {
-            const percentage = scrollRange.value / 100;
-            scrollSection.scrollTop = percentage * (scrollSection.scrollHeight - scrollSection.clientHeight);
-        });
     </script>
 </body>
 </html>
